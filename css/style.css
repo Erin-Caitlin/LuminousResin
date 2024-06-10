@@ -1,3 +1,4 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
 *,
 ::after,
@@ -21,12 +22,14 @@
 
 :is(body) {
     display: grid;
-    grid-template-rows: auto minmax(100%, 100dvh) auto;
-    background-color: var(--secondary)
+    grid-template-rows: auto minmax(1fr, 100dvh) auto;
+    background-color: var(--secondary);
+    font-family: "Italiana", sans-serif;
 }
 
 /* Navbar */
-.navbar {
+.navbar, 
+footer {
     position: sticky;
     top: 0;
     z-index: 10;
@@ -36,6 +39,8 @@
         width: 6rem;
     }
 }
+
+
 
 .nav-link {
         color: var(--secondary);
@@ -56,3 +61,10 @@
       transform: scale(1.2);
     }
 }
+ footer {
+    height: 7.7rem;
+    color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
