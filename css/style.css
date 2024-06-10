@@ -7,6 +7,13 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary: #d3b89d;
+    --secondary: #fbf7f2;
+    --alternative: #b69779;
+    --awesome: #aba98d;
+  }
+
 /* scrollbar */
 ::-webkit-scrollbar {
     display: none;
@@ -15,4 +22,37 @@
 :is(body) {
     display: grid;
     grid-template-rows: auto minmax(100%, 100dvh) auto;
+    background-color: var(--secondary)
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color:var(--primary);
+
+    & img[alt='logo'] {
+        width: 6rem;
+    }
+}
+
+.nav-link {
+        color: var(--secondary);
+        transition: all 0.4s;
+      
+        &:hover {
+          transform: scale(1.2);
+          background-color: var(--secondary);
+          color: var(--alternative);
+          border-radius: .2rem;
+        }
+}
+
+.navbar-brand {
+    transition: all 0.4s;
+  
+    &:hover {
+      transform: scale(1.2);
+    }
 }
