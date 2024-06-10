@@ -1,1 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+:is(body) {
+    display: grid;
+    grid-template-rows: auto minmax(100%, 100dvh) auto;
+}
