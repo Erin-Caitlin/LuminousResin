@@ -20,7 +20,7 @@
     display: none;
 }
 
-:is(body) {
+body {
     display: grid;
     grid-template-rows: auto minmax(100%, 100dvh) auto;
     background-color: var(--secondary);
@@ -28,8 +28,7 @@
 }
 
 /* Navbar */
-.navbar, 
-footer {
+.navbar {
     position: sticky;
     top: 0;
     z-index: 10;
@@ -63,6 +62,7 @@ footer {
 footer {
     height: 6rem;
     color: var(--secondary);
+    background-color:var(--primary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,10 +103,6 @@ h1 {
     width: 15rem;
     text-align: center;
     background-color: #aba98dd5;
-}
-
-.store-link {
-    color: var(--secondary);
     transition: all 0.4s;
   
     &:hover {
@@ -114,14 +110,13 @@ h1 {
     }
 }
 
+.store-link {
+    color: var(--secondary);
+}
+
 .carousel-item {
     width: 80rem;
 }
-
-/* .card {
-    margin-top: 2rem;
-    height: 12rem;
-} */
 
 img[alt='coasters-main'] {
     margin-top: 2rem;
@@ -136,3 +131,26 @@ img[alt='coasters-main'] {
 .carousel-control-next {
     display: none;
 }
+
+/* Product page */
+#product-main {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+.btn {
+    background-color: var(--secondary);
+    border-color: var(--alternative);
+    color: var(--alternative);
+
+    &:hover {
+        background-color: var(--awesome);
+        border-color: var(--primary);
+        color: var(--secondary);
+    }
+}
+
+#all-products {
+    background-color: var(--alternative);
+    color: var(--secondary);
+}
+
