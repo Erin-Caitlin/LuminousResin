@@ -22,8 +22,6 @@
 
 /* All pages */
 body {
-    display: grid;
-    grid-template-rows: auto minmax(100%, 100dvh) auto;
     background-color: var(--secondary);
     font-family: "Italiana", sans-serif;
 }
@@ -77,8 +75,10 @@ main {
 #main-content {
     display: flex;
     flex-direction: column;
+    height: 100%;
     background: var(--secondary)
     url(https://erin-caitlin.github.io/all-images/LuminousResin/homeBackground1.jpg);
+    /* overflow: hidden; */
     background-size: cover;
     color: var(--secondary);
 }
@@ -88,6 +88,12 @@ h1 {
     display: flex;
     justify-content: center;
     background-color: #fbf7f2c0;
+    color: var(--alternative);
+}
+
+h2 {
+    margin-top: 3rem;
+    text-align: center;
     color: var(--alternative);
 }
 
@@ -102,6 +108,7 @@ h1 {
 /* Home page link to product page */
 .productPage {
     margin-top: 2.5rem;
+    margin-bottom: 2rem;
     padding: 0.5rem;
     margin-inline: auto;
     width: 15rem;
@@ -173,6 +180,71 @@ img[alt='coasters-main'] {
     height: 18rem;
 }
 
-/* #all-products {
-    height: 30rem;
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    font-weight: bolder;
+    color: var(--alternative);
+}
+
+#name,
+#surname,
+#message{
+    padding: .5rem;
+    width: 50rem;
+    border-radius: .3rem;
+    color: var(--secondary);
+    border: var(--secondary);
+    background-color: var(--primary);
+}
+
+/* Contact form placeholder */
+::placeholder {
+    color: var(--secondary);
+}
+
+#btn-send,
+#btn-clear {
+    padding: 1rem;
+    border-radius: .2rem;
+    width: 10rem;
+    background-color: var(--awesome);
+    color: var(--secondary);
+    border-color: var(--secondary);
+}
+
+[social-media] {
+    margin-top: 5rem;
+    margin-left: 15rem;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    background-color: var(--primary);
+    color: var(--secondary);
+    font-size: xx-large;
+    text-align: center;
+    width: 65rem;
+}
+
+#socials {
+    padding: 3rem;
+    display: flex;
+}
+
+.btns{
+    display: flex;
+    gap: 3rem;
+    /* flex-direction: row-reverse; */
+}
+
+/* #social-media {
+    display: flex;
+    flex-direction: row-reverse;
+} */
+
+/* #anything {
+    padding-left: 0rem;
+    padding-right: 0rem;
+    min-width: 100% ;
 } */

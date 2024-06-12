@@ -153,7 +153,7 @@ function displayProducts() {
                   <h4 class="card-title">${product.productName}</h4>
                   <p class="card-text">${product.description}</p>
                   <p class="card-text">R ${product.amount}</p>
-                  <a href="#" class="btn btn-primary">Add to cart</a>
+                  <button class="btn">Add to cart</button>
                 </div>
             </div>`
         })
