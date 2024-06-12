@@ -21,7 +21,7 @@
 }
 
 body {
-    display: grid;
+    /* display: grid; */
     grid-template-rows: auto minmax(100%, 100dvh) auto;
     background-color: var(--secondary);
     font-family: "Italiana", sans-serif;
@@ -137,6 +137,7 @@ img[alt='coasters-main'] {
     margin-top: 2rem;
     margin-bottom: 3rem;
 }
+
 .btn {
     background-color: var(--secondary);
     border-color: var(--alternative);
@@ -149,8 +150,17 @@ img[alt='coasters-main'] {
     }
 }
 
+
+
 #all-products {
     background-color: var(--alternative);
     color: var(--secondary);
 }
 
+.card-img-top {
+    height: 18rem;
+}
+
+/* #all-products {
+    height: 30rem;
+} */
