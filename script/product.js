@@ -27,7 +27,7 @@ let products = JSON.parse(localStorage.getItem('products')) ? JSON.parse(localSt
                     id: 3,
                     productName: "Wedding Daze",
                     category: "Coasters",
-                    description: "Set of 4 golden cover resin coasters",
+                    description: "Set of four golden cover resin coasters",
                     amount: 550.96,
                     img_url: "https://erin-caitlin.github.io/all-images/LuminousResin/golden resin coasters.jpg"
                 },
@@ -35,7 +35,7 @@ let products = JSON.parse(localStorage.getItem('products')) ? JSON.parse(localSt
                     id: 4,
                     productName: "Emerald Bliss",
                     category: "Coasters",
-                    description: "Four set coasters and Tray Combo",
+                    description: "Four coasters set and Tray Combo",
                     amount: 1000.99,
                     img_url: "https://erin-caitlin.github.io/all-images/LuminousResin/download (3).jpg"
                 },
@@ -99,7 +99,7 @@ let products = JSON.parse(localStorage.getItem('products')) ? JSON.parse(localSt
                 },
                 {
                     id: 12,
-                    productName: "Time in the clouds",
+                    productName: "Cloud 9",
                     category: "Notebook",
                     description: "Notebook Planner Cover A5",
                     amount: 12000.54,
@@ -150,7 +150,7 @@ function displayProducts() {
             <div class="card" style="width: 18rem;" id="all-products">
                 <img src="${product.img_url}" class="card-img-top" alt="${product.productName}" loading='lazy'>
                 <div class="card-body">
-                  <h5 class="card-title">${product.productName}</h5>
+                  <h4 class="card-title">${product.productName}</h4>
                   <p class="card-text">${product.description}</p>
                   <p class="card-text">R ${product.amount}</p>
                   <a href="#" class="btn btn-primary">Add to cart</a>
