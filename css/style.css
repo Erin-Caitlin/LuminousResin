@@ -20,8 +20,9 @@
     display: none;
 }
 
+/* All pages */
 body {
-    /* display: grid; */
+    display: grid;
     grid-template-rows: auto minmax(100%, 100dvh) auto;
     background-color: var(--secondary);
     font-family: "Italiana", sans-serif;
@@ -72,6 +73,7 @@ main {
     background-color: var(--secondary);
 }
 
+/* Landing Page */
 #main-content {
     display: flex;
     flex-direction: column;
@@ -89,6 +91,7 @@ h1 {
     color: var(--alternative);
 }
 
+/* Bottom of landing page */
 #carouselExampleAutoplaying {
     margin-top: 15rem;
     margin-left: 5rem;
@@ -96,8 +99,9 @@ h1 {
     font-size: 1.5rem;
 }
 
+/* Home page link to product page */
 .productPage {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     padding: 0.5rem;
     margin-inline: auto;
     width: 15rem;
@@ -115,18 +119,28 @@ h1 {
 }
 
 .carousel-item {
+    /* margin-inline: auto; */
+    background-color: #b6987960;
     width: 80rem;
 }
 
+#productDescription {
+    margin-left: 3rem;
+    width: fit-content;
+}
+
 img[alt='coasters-main'] {
-    margin-top: 2rem;
-    height: 10rem;
-    width: 10rem;
+    margin-bottom: .5rem;
+    margin-top: 1.5rem;
+    margin-left: 5rem;
+    height: 11rem;
+    width: 20rem;
     aspect-ratio: 1/1;
     object-fit: contain;
     object-position: center;
 }
 
+/* Carousel buttons */
 .carousel-control-prev,
 .carousel-control-next {
     display: none;
@@ -149,8 +163,6 @@ img[alt='coasters-main'] {
         color: var(--secondary);
     }
 }
-
-
 
 #all-products {
     background-color: var(--alternative);
