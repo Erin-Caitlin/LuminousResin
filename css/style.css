@@ -43,10 +43,7 @@ body {
 .nav-link {
         color: var(--secondary);
         transition: all 0.4s;
-      
-        &:is(:active, :focus-within){
-            text-decoration: underline;
-        }
+
         &:hover {
           transform: scale(1.2);
           background-color: var(--secondary);
@@ -94,7 +91,7 @@ h1 {
     justify-content: center;
     background-color: #fbf7f2c0;
     color: var(--alternative);
-    /* font-weight: bolder; */
+    font-weight: bolder;
 }
 
 h2 {
@@ -160,10 +157,11 @@ img[alt='coasters-main'] {
 }
 
 /* Product page */
-#product-main {
+
+/* #product-main {
     margin-top: 2rem;
     margin-bottom: 3rem;
-}
+} */
 
 /* Add to cart button */
 .btn {
@@ -220,16 +218,13 @@ img[alt='coasters-main'] {
 
 /* contact page */
 
-[contact-content] {
-    /* height: 100%;
-    background: url(https://erin-caitlin.github.io/all-images/LuminousResin/background1.jpg) no-repeat;
-    background-size: cover; */
-    /* display: flex;
+[content] {
+    display: flex;
     flex-direction: column;
     background: var(--secondary)
-    url(https://erin-caitlin.github.io/all-images/LuminousResin/background1.jpg);
-    /* overflow: hidden; */
-    /* background-size: cover; */ */
+    url(https://erin-caitlin.github.io/all-images/LuminousResin/background5.jpg);
+    /* overflow: hidden;*/
+    background-size: cover;
 }
 
 #contact-form {
