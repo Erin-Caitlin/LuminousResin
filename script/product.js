@@ -2,7 +2,9 @@
 document.querySelector('[currentYear]').textContent = new Date(). getUTCFullYear()
 
 // local storage
-let wrapper = document.querySelector('[Products]')
+let store = document.querySelector('[Products]')
+let searchBar = document.querySelector('[searchBar]')
+let sortProducts = document.querySelector('[sortBtn]')
 let products = JSON.parse(localStorage.getItem('products')) ? JSON.parse(localStorage.getItem('products')) : localStorage.setItem('products', 
         JSON.stringify(
             [
@@ -144,9 +146,9 @@ let products = JSON.parse(localStorage.getItem('products')) ? JSON.parse(localSt
 function displayProducts() {
     try {
         let arrSize = products.length
-        let latestProducts = products
-        latestProducts.forEach(product => {
-            wrapper.innerHTML += `
+        let allProducts = products
+        allProducts.forEach(product => {
+            store.innerHTML += `
             <div class="card" style="width: 18rem;" id="all-products">
                 <img src="${product.img_url}" class="card-img-top" alt="${product.productName}" loading='lazy'>
                 <div class="card-body">
@@ -158,7 +160,7 @@ function displayProducts() {
             </div>`
         })
     } catch (e) {
-        wrapper.textContent = "Please contact our administrator"
+        store.textContent = "Please contact our administrator"
         setTimeout(() => {
             location.reload()
         },
