@@ -12,7 +12,7 @@
     --primary: #d3b89d;
     --secondary: #fbf7f2;
     --alternative: #b69779;
-    --awesome: #aba98d;
+    --awesome: #acaf80;
   }
 
 /* scrollbar */
@@ -22,6 +22,8 @@
 
 /* All pages */
 body {
+    /* display: grid;
+    grid-template-rows: auto minmax(100%, 100dvh) auto; */
     background-color: var(--secondary);
     font-family: "Italiana", sans-serif;
 }
@@ -89,6 +91,7 @@ h1 {
     justify-content: center;
     background-color: #fbf7f2c0;
     color: var(--alternative);
+    /* font-weight: bolder; */
 }
 
 h2 {
@@ -113,7 +116,7 @@ h2 {
     margin-inline: auto;
     width: 15rem;
     text-align: center;
-    background-color: #aba98dd5;
+    background-color: #acaf80b0;
     transition: all 0.4s;
   
     &:hover {
@@ -159,6 +162,7 @@ img[alt='coasters-main'] {
     margin-bottom: 3rem;
 }
 
+/* Add to cart button */
 .btn {
     background-color: var(--secondary);
     border-color: var(--alternative);
@@ -235,16 +239,61 @@ img[alt='coasters-main'] {
 .btns{
     display: flex;
     gap: 3rem;
-    /* flex-direction: row-reverse; */
 }
 
-/* #social-media {
-    display: flex;
-    flex-direction: row-reverse;
-} */
+[about-heading] {
+    margin-top: 3.5rem;
+    /* margin-bottom: 5rem; */
+}
 
-/* #anything {
-    padding-left: 0rem;
-    padding-right: 0rem;
-    min-width: 100% ;
-} */
+#about-page {
+    display: flex;
+    flex-direction: column;
+    background: var(--secondary)
+    url(https://erin-caitlin.github.io/all-images/LuminousResin/background5.jpg);
+    /* overflow: hidden; */
+    background-size: cover;
+    color: var(--secondary);
+    font-weight: bolder;
+}
+
+#background-video,
+#background-videos {
+    width: 33rem;
+    border-radius: .3rem;
+}
+
+#about-content{
+    margin-inline: auto;
+    border-radius: .3rem;
+    width: 100rem;
+}
+
+[about-info] {
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    width: 70rem;
+}
+
+#firstRow {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+#secondRow {
+    margin-bottom: 2rem;
+}
+
+[about1],
+[about2] {
+    padding: 1.8rem;
+    background-color: #d3b89db4;
+    box-shadow: 1px 2px 2px 1px var(--alternative);
+    border-radius: .3rem;
+}
+[about1] {
+    margin-top: 1rem;
+}
