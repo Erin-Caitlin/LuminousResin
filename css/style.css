@@ -158,10 +158,10 @@ img[alt='coasters-main'] {
 
 /* Product page */
 
-/* #product-main {
+#product-main {
     margin-top: 2rem;
     margin-bottom: 3rem;
-} */
+}
 
 /* Add to cart button */
 .btn {
@@ -188,9 +188,20 @@ img[alt='coasters-main'] {
     }
 }
 
+[search] {
+    ::placeholder {
+        color: var(--alternative);
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 70%;
+}
+
 [searchBar] {
     padding: .5rem;
-    width: 60rem;
+    width: 40rem;
     border-radius: .3rem;
     color: var(--alternative);
     border-color: var(--primary);
@@ -198,7 +209,8 @@ img[alt='coasters-main'] {
 }
 
 [sortBtn] {
-    width: 15rem;
+    padding: .5rem;
+    width: 10rem;
     background-color: var(--awesome);
     border-color: var(--secondary);
     border-radius: .3rem;

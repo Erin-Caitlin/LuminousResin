@@ -169,3 +169,118 @@ function displayProducts() {
     }
 }
 displayProducts()
+
+
+// Search bar
+searchBar.addEventListener('change', () => {
+    
+})
+
+function displayProductsFiltered(args) {
+    store.innerHTML = ""
+    try {
+        args.forEach(product => {
+            store.innerHTML += `
+            <div class="card" style="width: 18rem;" id="all-products">
+                <img src="${product.img_url}" class="card-img-top" alt="${product.productName}" loading='lazy'>
+                <div class="card-body">
+                  <h4 class="card-title">${product.productName}</h4>
+                  <p class="card-text">${product.description}</p>
+                  <p class="card-text">R ${product.amount}</p>
+                  <button class="btn">Add to cart</button>
+                </div>
+            </div>`
+        })
+
+    } catch (e) {
+        store.textContent = "Please contact our administrator"
+        setTimeout(() => {
+            location.reload()
+        },
+            2000
+        )
+    }
+}
+document.querySelector('[searchBar]').addEventListener('keyup', ()=>{
+    try {
+        if (searchBar.value.length < 1) {
+            displayProductsFiltered(products)
+        }
+        let filteredProduct = products.filter(product => product.productName.toLowerCase().includes(searchBar.value))
+        displayProductsFiltered(filteredProduct)
+        if (!filteredProduct.length) throw new Error(`${searchBar.value} was not found`)
+    } catch (e) {
+        console.log(e);
+        store.textContent = e.message || 'Please try again later'
+    }
+})
+
+// sorting
+let isToggle = false
+sortProducts.addEventListener('click', () => {
+    try {
+        if (!products) throw new Error('Please try again later')
+        if (!isToggle) {
+            products.sort((a, b) => b.amount - a.amount)
+            sortProducts.textContent = 'Sorted by highest amount'
+            isToggle = true
+        } else {
+            products.sort((a, b) => a.amount - b.amount)
+            sortProducts.textContent = 'Sorted by lowest amount'
+            isToggle = false
+        }
+        displayProductsFiltered(products)
+    } catch (e) {
+        store.textContent = e.message || 'We apologise for the inconvience, please try again later.'
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Sorting by ascending and descending
+// let isToggle = false
+// sortingByAmount.addEventListener('click', () => {
+//     try {
+//         if (!products) throw new Error('Please try again later')
+//         if (!isToggle) {
+//             products.sort((a, b) => b.amount - a.amount)
+//             sortingByAmount.textContent = 'Sorted by highest amount'
+//             isToggle = true
+//         } else {
+//             products.sort((a, b) => a.amount - b.amount)
+//             sortingByAmount.textContent = 'Sorted by lowest amount'
+//             isToggle = false
+//         }
+//         displayProducts(products)
+//     } catch (e) {
+//         container.textContent = e.message || 'We are working on this issue'
+//     }
+// })
+// // Add to cart
+// function addToCart(product) {
+//     try {
+//         checkoutItems.push(product)
+//         localStorage.setItem('checkout', JSON.stringify(checkoutItems))
+//         document.querySelector('[counter]').textContent = checkoutItems.length || 0
+//     } catch (e) {
+//         alert("Unable to add to cart")
+//     }
+// }
+
