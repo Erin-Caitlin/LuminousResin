@@ -21,7 +21,7 @@
             <li class="nav-item"><a class="nav-link" aria-current="page" href="../index.html">Home</a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="./about.html">About</a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="./product.html">Store<i class="bi bi-bag-check"></i></a></li>
-            <li class="nav-item"><a class="nav-link" aria-current="page" href="./checkout.html">Checkout<i class="bi bi-cart-check"></i></a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="./checkout.html">Checkout<span class="badge" counter></span></a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="./admin.html">Admin</a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="./contact.html">Contact</a></li>
           </ul>
@@ -29,8 +29,28 @@
       </div>
     </nav>
     
-    <main content>
+    <main class="container-fluid" content>
       <h2 class="display-2">Checkout <i class="bi bi-cart-check"></i></h2>
+
+      <table class="container" table>
+        <tr>
+          <th class="text-center">Product</th>
+          <th class="text-center">Image</th>
+          <th class="text-center">Price</th>
+          <th class="text-center">Quantity</th>
+          <th class="text-center">Subtotal</th>
+        </tr>
+      </table>
+      <button type="button" class="btn" shop-more><a href="./product.html" shop-link>Shop More</a></button>
+      <button type="button" class="btn" purchase><a href="./product.html" shop-link>Purchase</a></button>
+
+
+
+
+
+
+
+
     </main>
 
   <footer class="container-fluid">

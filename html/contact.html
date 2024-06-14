@@ -21,9 +21,9 @@
             <li class="nav-item"><a class="nav-link" aria-current="page" href="../index.html">Home</a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="./about.html">About</a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="./product.html">Store<i class="bi bi-bag-check"></i></a></li>
-            <li class="nav-item"><a class="nav-link" aria-current="page" href="./checkout.html">Checkout<i class="bi bi-cart-check"></i></a></li>
+            <li class="nav-item"><a class="nav-link" aria-current="page" href="./checkout.html">Checkout<span class="badge" counter></span></a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="./admin.html">Admin</a></li>
-            <li class="nav-item"><a class="nav-link" aria-current="page" href="./contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="./contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -31,52 +31,53 @@
     
     <main class="container-fluid" content>
       <section id="contact-page">
-      <h2 class="display-2">Contact <i class="bi bi-chat-square"></i></h2>
-      <form action="https://formspree.io/f/xnqeedej" method="POST" id="contact-form">
-        <label>Your name:</label>
-          <input type="text" name="Name and Surname" placeholder="Name and surname" id="name">
+        <h2 class="display-2">Contact <i class="bi bi-chat-square"></i></h2>
+          <form action="https://formspree.io/f/xnqeedej" method="POST" id="contact-form">
+            <label>Your name:</label>
+            <input type="text" name="Name and Surname" placeholder="Name and surname" id="name">
         
-        <label>Your email:</label>
-          <input type="email" name="email" placeholder="Email@gmail.com" id="surname">
+            <label>Your email:</label>
+            <input type="email" name="email" placeholder="Email@gmail.com" id="surname">
         
-        <label>Your message:</label>
-          <textarea name="message" placeholder="Type your message..." id="message"></textarea>
+            <label>Your message:</label>
+            <textarea name="message" placeholder="Type your message..." id="message"></textarea>
         
-        <div class="btns">  
-        <button type="submit" id="btn-send">Send</button>
-        <button type="reset" id="btn-clear">Clear</button>
-        </div>
-      </form>
-
+            <div class="btns">  
+            <button type="submit" id="btn-send">Send</button>
+            <button type="reset" id="btn-clear">Clear</button>
+          </form>
+      </section>
 
       <div social-media>
-      <h3 class="display-3" contact-info>Call us or find us on our socials:</h3>
+        <h3 class="display-3" contact-info>Call us or find us on our socials:</h3>
+
       <div class="col" id="socials">
-      
-      <div class="col" id="contact">
-      <i class="bi bi-telephone" icon></i><p class="lead">066 267 3498</p>
+        <div class="col" id="contact">
+          <i class="bi bi-telephone" icon></i><p class="lead">066 267 3498</p>
+        </div>
+
+        <div class="col" id="contact">
+          <i class="bi bi-whatsapp" icon></i>
+          <p class="lead">066 267 3498</p>
+        </div>
+
+        <div class="col" id="contact">
+          <i class="bi bi-instagram" icon></i>
+          <p class="lead">Luminous_Resin</p>
+        </div>
+
+        <div class="col" id="contact">
+          <i class="bi bi-envelope" icon></i>
+          <p class="lead">luminous.resin@gmail.com</p>
+        </div>
+
+        <div  class="col" id="contact">
+          <i class="bi bi-tiktok" icon></i>
+          <p class="lead">Luminous_Resin</p>
+        </div>
+        
+        </div>
       </div>
-      <div class="col" id="contact">
-      <i class="bi bi-whatsapp" icon></i>
-      <p class="lead">066 267 3498</p>
-    </div>
-    <div class="col" id="contact">
-      <i class="bi bi-instagram" icon></i>
-      <p class="lead">Luminous_Resin</p>
-    </div>
-    <div class="col" id="contact">
-      <i class="bi bi-envelope" icon></i>
-      <p class="lead">luminous.resin@gmail.com</p>
-    </div>
-    <div  class="col" id="contact">
-      <i class="bi bi-tiktok" icon></i>
-      <p class="lead">Luminous_Resin</p>
-    </div>
-      <p class="lead"></p>
-    </div>
-    </div>
-  </div>
-    </section>
     </main>
 
     <footer class="container-fluid">
@@ -90,6 +91,12 @@
     <script>
       // Current year
       document.querySelector('[currentYear]').textContent = new Date(). getUTCFullYear()
+
+      window.onload = () => {
+            document.querySelector('[counter]').textContent = JSON.parse(localStorage.getItem('checkout'))
+                ? JSON.parse(localStorage.getItem('checkout')).length
+                : 0
+        }
     </script>
 </body>
 </html>

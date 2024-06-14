@@ -21,7 +21,10 @@
 }
 
 /* All pages */
+
 body {
+    margin: 0;
+    padding: 0;
     display: grid;
     grid-template-rows: auto minmax(100dvh, 100%) auto;
     background-color: var(--secondary);
@@ -49,6 +52,11 @@ body {
           background-color: var(--secondary);
           color: var(--alternative);
           border-radius: .2rem;
+        }
+
+        &.active {
+            background-color: var(--secondary);
+            border-radius: .2rem;
         }
 }
 
@@ -80,7 +88,6 @@ main {
     height: 100%;
     background: var(--secondary)
     url(https://erin-caitlin.github.io/all-images/LuminousResin/homeBackground1.jpg);
-    /* overflow: hidden; */
     background-size: cover;
     color: var(--secondary);
 }
@@ -129,7 +136,6 @@ h2 {
 }
 
 .carousel-item {
-    /* margin-inline: auto; */
     background-color: #b6987960;
     width: 80rem;
 }
@@ -194,7 +200,6 @@ img[alt='coasters-main'] {
     }
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 1rem;
     width: 70%;
 }
@@ -227,15 +232,12 @@ img[alt='coasters-main'] {
     height: 18rem;
 }
 
-
 /* contact page */
-
 [content] {
     display: flex;
     flex-direction: column;
     background: var(--secondary)
-    url(https://erin-caitlin.github.io/all-images/LuminousResin/background5.jpg);
-    /* overflow: hidden;*/
+    url(https://erin-caitlin.github.io/all-images/LuminousResin/background4.jpg);
     background-size: cover;
 }
 
@@ -265,7 +267,9 @@ img[alt='coasters-main'] {
 }
 
 #btn-send,
-#btn-clear {
+#btn-clear,
+[purchase],
+[shop-more] {
     padding: 1rem;
     border-radius: .2rem;
     width: 10rem;
@@ -274,13 +278,20 @@ img[alt='coasters-main'] {
     border-color: var(--secondary);
 }
 
-[icon]:hover{
-     transform: scale(1.2);
+[purchase],
+[shop-more] {
+    margin-top: 1rem;
+    margin-inline: auto;
+}
+
+[shop-link] {
+    text-decoration: none;
+    color: var(--secondary);
 }
 
 [social-media] {
     margin-top: 5rem;
-    margin-left: 15rem;
+    margin-inline: auto;
     margin-bottom: 2rem;
     padding-top: 2rem;
     background-color: var(--primary);
@@ -302,7 +313,6 @@ img[alt='coasters-main'] {
 
 [about-heading] {
     margin-top: 3.5rem;
-    /* margin-bottom: 5rem; */
 }
 
 #about-page {
@@ -310,7 +320,6 @@ img[alt='coasters-main'] {
     flex-direction: column;
     background: var(--secondary)
     url(https://erin-caitlin.github.io/all-images/LuminousResin/background5.jpg);
-    /* overflow: hidden; */
     background-size: cover;
     color: var(--secondary);
     font-weight: bolder;
@@ -353,6 +362,54 @@ img[alt='coasters-main'] {
     box-shadow: 1px 2px 2px 1px var(--alternative);
     border-radius: .3rem;
 }
+
 [about1] {
     margin-top: 1rem;
 }
+
+.badge {
+    background-color: var(--alternative);
+    color: var(--secondary);
+
+    &:hover {
+        background-color: var(--awesome);
+        color: var(--secondary);
+    }
+}
+
+td, th {
+    color: var(--alternative);
+        border: .2rem solid var(--alternative);
+        padding: .2em .7em;
+        font-size: 95%; 
+}
+
+@media (max-width: 300px) {
+    #home-page h1 {
+      font-size: 2rem; 
+    }
+    #carouselExampleAutoplaying .carousel-inner .carousel-item .row {
+      flex-direction: column;
+    }
+  
+    #carouselExampleAutoplaying .carousel-inner .carousel-item .col-lg-8 {
+      order: 2;
+      margin-top: 1rem; 
+    }
+  
+    #carouselExampleAutoplaying .carousel-inner .carousel-item .col {
+      margin-top: 1rem;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
