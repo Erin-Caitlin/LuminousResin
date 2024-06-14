@@ -157,7 +157,7 @@ function displayProducts() {
                   <h4 class="card-title">${product.productName}</h4>
                   <p class="card-text">${product.description}</p>
                   <p class="card-text">R ${product.amount}</p>
-                  <button class="btn" id="${product.id}" onclick= 'cart(1)'>Add to cart</button>
+                  <button class="btn" onclick= 'cart(${product.id})'>Add to cart</button>
                 </div>
             </div>`
         })
@@ -255,7 +255,7 @@ function cart(productId) {
     try {
         let product = products.find(item => item.id === productId);
         if (product) {
-            
+            console.log(product);
             checkoutItems.push(product);
             document.querySelector('[counter]').textContent = checkoutItems.length;
             localStorage.setItem('checkout', JSON.stringify(checkoutItems));
