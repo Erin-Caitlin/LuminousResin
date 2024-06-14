@@ -1,11 +1,13 @@
 // Current year
-document.querySelector('[currentYear]').textContent = new Date(). getUTCFullYear()
+document.querySelector('[currentYear]').textContent = new Date(). getUTCFullYear() 
 
 // local storage
 let store = document.querySelector('[Products]')
 let searchBar = document.querySelector('[searchBar]')
 let sortProducts = document.querySelector('[sortBtn]')
-let products = JSON.parse(localStorage.getItem('products')) ? JSON.parse(localStorage.getItem('products')) : localStorage.setItem('products', 
+let products = JSON.parse(localStorage.getItem('products')) 
+    ? JSON.parse(localStorage.getItem('products')) 
+    : localStorage.setItem('products', 
         JSON.stringify(
             [
                 // Row of coasters
@@ -63,7 +65,7 @@ let products = JSON.parse(localStorage.getItem('products')) ? JSON.parse(localSt
                     productName: "Golden Flower",
                     category: "Bookmark",
                     description: "Gold Flake, Flower print bookmark set",
-                    amount: 12000.54,
+                    amount: 362.57,
                     img_url: "https://erin-caitlin.github.io/all-images/LuminousResin/gold leaf.jpg"
                 },
                 {
@@ -80,7 +82,7 @@ let products = JSON.parse(localStorage.getItem('products')) ? JSON.parse(localSt
                     productName: "Bunch of Roses",
                     category: "Notebook",
                     description: "Set of 3 - Resin Journals with Pressed Flowers",
-                    amount: 12000.54,
+                    amount: 460.99,
                     img_url: "https://erin-caitlin.github.io/all-images/LuminousResin/Handmade Resin Journals with Pressed Flowers.jpg"
                 },
                 {
@@ -88,7 +90,7 @@ let products = JSON.parse(localStorage.getItem('products')) ? JSON.parse(localSt
                     productName: "Ocean Rise",
                     category: "Notebook",
                     description: "minimalistic diary",
-                    amount: 5000.36,
+                    amount: 400.36,
                     img_url: "https://erin-caitlin.github.io/all-images/LuminousResin/minimalistic diary.jpg"
                 },
                 {
@@ -96,7 +98,7 @@ let products = JSON.parse(localStorage.getItem('products')) ? JSON.parse(localSt
                     productName: "Marshmellow bundle",
                     category: "Notebook",
                     description: "Pink and White Notebook - Resin Gift Set",
-                    amount: 3000.54,
+                    amount: 480.99,
                     img_url: "https://erin-caitlin.github.io/all-images/LuminousResin/Resin Gift Set.jpg"
                 },
                 {
@@ -104,7 +106,7 @@ let products = JSON.parse(localStorage.getItem('products')) ? JSON.parse(localSt
                     productName: "Cloud 9",
                     category: "Notebook",
                     description: "Notebook Planner Cover A5",
-                    amount: 12000.54,
+                    amount: 380.00,
                     img_url: "https://erin-caitlin.github.io/all-images/LuminousResin/Notebook Planner Cover A5.jpg"
                 },
                 // Row of clocks
@@ -155,7 +157,7 @@ function displayProducts() {
                   <h4 class="card-title">${product.productName}</h4>
                   <p class="card-text">${product.description}</p>
                   <p class="card-text">R ${product.amount}</p>
-                  <button class="btn">Add to cart</button>
+                  <button class="btn" id="${product.id}" onclick= 'cart(1)'>Add to cart</button>
                 </div>
             </div>`
         })
@@ -187,13 +189,18 @@ function displayProductsFiltered(args) {
                   <h4 class="card-title">${product.productName}</h4>
                   <p class="card-text">${product.description}</p>
                   <p class="card-text">R ${product.amount}</p>
-                  <button class="btn">Add to cart</button>
+                  <button class="btn" onclick="cart()">Add to cart</button>
                 </div>
             </div>`
         })
 
     } catch (e) {
-        store.textContent = "Please contact our administrator"
+        let spinner = document.createElement("div");
+        spinner.innerHTML = `
+        <div class="spinner-border text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>`;
+        store.appendChild(spinner);
         setTimeout(() => {
             location.reload()
         },
@@ -235,52 +242,25 @@ sortProducts.addEventListener('click', () => {
     }
 })
 
+window.onload = () => {
+    document.querySelector('[counter]').textContent = JSON.parse(localStorage.getItem('checkout'))
+        ? JSON.parse(localStorage.getItem('checkout')).length
+        : 0
+}
 
+// Add to cart
+let checkoutItems = JSON.parse(localStorage.getItem('checkout')) || [];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Sorting by ascending and descending
-// let isToggle = false
-// sortingByAmount.addEventListener('click', () => {
-//     try {
-//         if (!products) throw new Error('Please try again later')
-//         if (!isToggle) {
-//             products.sort((a, b) => b.amount - a.amount)
-//             sortingByAmount.textContent = 'Sorted by highest amount'
-//             isToggle = true
-//         } else {
-//             products.sort((a, b) => a.amount - b.amount)
-//             sortingByAmount.textContent = 'Sorted by lowest amount'
-//             isToggle = false
-//         }
-//         displayProducts(products)
-//     } catch (e) {
-//         container.textContent = e.message || 'We are working on this issue'
-//     }
-// })
-// // Add to cart
-// function addToCart(product) {
-//     try {
-//         checkoutItems.push(product)
-//         localStorage.setItem('checkout', JSON.stringify(checkoutItems))
-//         document.querySelector('[counter]').textContent = checkoutItems.length || 0
-//     } catch (e) {
-//         alert("Unable to add to cart")
-//     }
-// }
-
+function cart(productId) {
+    try {
+        let product = products.find(item => item.id === productId);
+        if (product) {
+            
+            checkoutItems.push(product);
+            document.querySelector('[counter]').textContent = checkoutItems.length;
+            localStorage.setItem('checkout', JSON.stringify(checkoutItems));
+        }
+    } catch (e) {
+        alert("Unable to add product to cart");
+    }
+}

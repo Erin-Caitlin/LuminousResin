@@ -20,9 +20,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" aria-current="page" href="../index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" aria-current="page" href="./about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="./about.html">About</a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="./product.html">Store<i class="bi bi-bag-check"></i></a></li>
-            <li class="nav-item"><a class="nav-link" aria-current="page" href="./checkout.html">Checkout<i class="bi bi-cart-check"></i></a></li>
+            <li class="nav-item"><a class="nav-link" aria-current="page" href="./checkout.html">Checkout<span class="badge" counter></span></a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="./admin.html">Admin</a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="./contact.html">Contact</a></li>
           </ul>
@@ -32,40 +32,46 @@
     
     <main class="container-fluid" id="about-page" content>
       
-
         <h2 class="display-2" about-heading>About <i class="bi bi-info-square"></i></h2>
+
         <section class="row" id="about-content">
-        <div id="firstRow" data-aos="fade-right" about-info>
-        <video autoplay loop id="background-video">
-          <source src="https://erin-caitlin.github.io/all-images/LuminousResin/about-content2.mp4" type="video/mp4">
-        </video>
+          <div id="firstRow" data-aos="fade-right" about-info>
+          <video autoplay loop id="background-video">
+            <source src="https://erin-caitlin.github.io/all-images/LuminousResin/about-content2.mp4" type="video/mp4">
+          </video>
 
-        <p class="lead" about1>Welcome to Luminous Resin, a testament to my creative vision as its sole proprietor, Erin Caitlin Williams. Established in 2020, Luminous Resin emerged from my passion for crafting and a yearning to channel my artistic talents into a thriving business. Inspired by resin artistry's allure, I set out to create a space where creativity knows no bounds, transforming the ordinary into the extraordinary.</p>
+          <p class="lead" about1>Welcome to Luminous Resin, a testament to my creative vision as its sole proprietor, Erin Caitlin Williams. Established in 2020, Luminous Resin emerged from my passion for crafting and a yearning to channel my artistic talents into a thriving business. Inspired by resin artistry's allure, I set out to create a space where creativity knows no bounds, transforming the ordinary into the extraordinary.</p>
 
+          </div>
+          <div id="secondRow" data-aos="fade-left" about-info>
+          <p class="lead" about2>What began as a personal exploration in my backyard has blossomed into a dedicated endeavor, fueled by a profound appreciation for the transformative power of resin art; with a deep-seated love, I embarked on my entrepreneurial journey handcrafting resin keychains, each with a unique charm and radiance, and it's this inherent ability to imbue objects with a luminous quality that defines the essence of Luminous Resin.<p>
+          <video autoplay loop id="background-videos">
+            <source src="https://erin-caitlin.github.io/all-images/LuminousResin/about-content1.mp4" type="video/mp4">
+          </video>
         </div>
-        <div id="secondRow" data-aos="fade-left" about-info>
-        <p class="lead" about2>What began as a personal exploration in my backyard has blossomed into a dedicated endeavor, fueled by a profound appreciation for the transformative power of resin art; with a deep-seated love, I embarked on my entrepreneurial journey handcrafting resin keychains, each with a unique charm and radiance, and it's this inherent ability to imbue objects with a luminous quality that defines the essence of Luminous Resin.<p>
-        <video autoplay loop id="background-videos">
-          <source src="https://erin-caitlin.github.io/all-images/LuminousResin/about-content1.mp4" type="video/mp4">
-        </video>
-      </div>
       </section>
     </main>
 
-  <footer class="container-fluid">
-    <div class="row">
-        <p class="lead">Luminous Resin &copy; <span currentYear></span></p>
-    </div>
-  </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <script>
-      // Current year
-      document.querySelector('[currentYear]').textContent = new Date(). getUTCFullYear()
-    </script>
+    <footer class="container-fluid">
+      <div class="row">
+          <p class="lead">Luminous Resin &copy; <span currentYear></span></p>
+      </div>
+    </footer>
+  
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>AOS.init();</script>
+  
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+      <script>
+        // Current year
+        document.querySelector('[currentYear]').textContent = new Date(). getUTCFullYear()
+      
+        window.onload = () => {
+              document.querySelector('[counter]').textContent = JSON.parse(localStorage.getItem('checkout'))
+                  ? JSON.parse(localStorage.getItem('checkout')).length
+                  : 0
+          }
+      </script>
 </body>
 </html>
