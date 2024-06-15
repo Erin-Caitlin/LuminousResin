@@ -1,28 +1,10 @@
 // Current year
 document.querySelector('[currentYear]').textContent = new Date(). getUTCFullYear()
 
-// window.onload = () => {
-//     document.querySelector('[counter]').textContent = JSON.parse(localStorage.getItem('checkout'))
-//     ? JSON.parse(localStorage.getItem('checkout')).length : 0;
-
-    let checkoutItems = JSON.parse(localStorage.getItem('checkout')) || [];
-    let table = document.querySelector('[table]');
-    let totalAmount = 0;
-   
-//     checkoutItems.forEach(product => {
-//         totalAmount += product.amount;
-//         table.innerHTML += `
-//             <tr>
-//                 <td>${product.productName}</td>
-//                 <td><img src="${product.img_url}" alt="${product.productName}" loading='lazy'></td>
-//                 <td>${product.description}</td>
-//                 <td>R ${product.amount}</td>
-//             </tr>`;
-//     });
-
-
-//     document.querySelector('[totalAmount]').textContent = `Total: R ${totalAmount.toFixed(2)}`;
-// }
+window.onload = () => {
+    document.querySelector('[counter]').textContent = JSON.parse(localStorage.getItem('checkout'))
+    ? JSON.parse(localStorage.getItem('checkout')).length : 0;
+}
 
 let checkoutDisplay = JSON.parse(localStorage.getItem('checkout')) || [];
 function displayCart() {
@@ -43,21 +25,38 @@ function displayCart() {
             <td><img src="${product.img_url}" alt="${product.productName}" style="width: 50px;"></td>
             <td>${product.productName}</td>
             <td>${product.category}</td>
-            <td>${product.amount}</td>
-            <td>1</td>
-            <td>${product.amount}</td>
+            <td>R ${product.amount}</td>
+            <td><input type="number" quantity></td>
+            <td subtotal></td>
+            <td><button class="delete-button btn btn-danger" onclick="removeProducts(${index})">Remove</button></td>
         </tr>`;
         cartSummary.innerHTML += cartProducts;
     });
 }
 
-
 document.addEventListener('DOMContentLoaded', displayCart);
+function removeProducts(index) {
+    checkoutDisplay.splice(index, 1);
+    localStorage.setItem('checkout', JSON.stringify(checkoutDisplay));
+    displayCart();
+}
 
-// let spinnerWrapper = document.querySelector('.spinner-wrapper');
-// setTimeout(() =>{
-// spinnerWrapper.style.opacity = '0';
-// }, 200);
+let purchaseBtn = document.querySelector('[purchase]')
+purchaseBtn.addEventListener('click', purchase)
+function purchase(){
+    checkoutDisplay = [];
+    localStorage.removeItem('checkout');
+    displayCart();
 
+    alert('Your purchase has been successful!')
+}
 
+let quantity = document.querySelector('[quantity]')
+let subtotal = document.querySelector('[subtotal]')
+subtotal.addEventListener('change', calculateSubtotal)
 
+function calculateSubtotal(){
+    let subAmount = quantity.value * `${product.amount}`
+    subtotal.textContent =(`R${subAmount.toFixed(2)}`)
+    return subtotal
+}
